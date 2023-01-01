@@ -1,0 +1,7 @@
+CFLAGS=-Wall -Wextra -Werror -pedantic -fPIC
+JLIBS=-I$(JULIA_DIR)/include/julia -L$(JULIA_DIR)/lib -Wl,-rpath,$(JULIA_DIR)/lib -ljulia
+
+all: main.c
+	cc $(CFLAGS) $(JLIBS) -o debug main.c 
+clean:
+	rm ./debug
